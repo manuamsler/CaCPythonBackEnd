@@ -1,0 +1,50 @@
+.separator {
+    /* border-top: 2px solid red !important;  */
+    /* border-bottom: 2px solid rgb(233, 12, 12) !important;  */
+    background-color: white !important;
+}
+
+body {
+    background-color:#198754 !important;
+    
+        /*heigh:665px;*/
+        /* background-position-y: 5rem !important;
+        background-position-x: 50rem !important;
+
+        background-image: url("../img/canchas-de-futbol-soccer.png") ;
+        background-repeat: no-repeat; */
+        
+     
+}
+.f5{
+    text-align: center;
+    color: white;
+
+}
+.er {
+    /* border-top: 2px solid red !important;  */
+    /* border-bottom: 2px solid rgb(233, 12, 12) !important;  */
+    background-color: red !important;
+    text-align: center;
+    color : white !important;
+    font-weight: bold;
+}
+.suplentes1 {
+    background-color: gray !important;
+    text-align: center;
+    color : white !important;
+    font-weight: bold;
+}
+.ea {
+    background-color: blue !important;
+    text-align: center;
+    color : white !important;
+    font-weight: bold;
+}
+
+.ec {
+    background-color: orangered !important;
+    text-align: center;
+    color : white !important;
+    font-weight: bold;
+}

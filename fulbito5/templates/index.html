@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Lista de Empleados</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <script src="../static/jquery.js"></script>
+
+
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <link rel="stylesheet" href="../static/style.css">
+    <link rel="stylesheet" href="../static/fecha.css">
+
+  
+  
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.10.0/js/bootstrap-datepicker.min.js " rel="stylesheet">
+
+    
+
+   
+    
+
+
+    
+
+</head>
+<body>
+    <header id="header">
+        <!-- Coloca tu barra de navegación aquí -->
+    </header>
+    <main>
+        <div id="app" class="container">
+            <h1 class="f5">Futbol 5</h1>
+            <div class=class="content">  
+            
+         <div>
+
+
+
+           
+   
+
+       
+
+           
+            <div class="container-fluid">
+                <div class="row">
+                  <div class="col-lg-6 offset-lg-3 col-md-8 offset-md-2">
+                    <div class="content">
+                      <h1>Fecha y hora del partido</h1>
+                      <div class="form-group">
+                        <label>Fecha</label>
+                        <div class="input-group date" id="datepicker">
+                          <input class="form-control" placeholder="MM/DD/YYYY"/><span class="input-group-append input-group-addon"><span class="input-group-text"><i class="fa fa-calendar"></i></span></span>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label>Hora</label>
+                        <div class="input-group time" id="timepicker">
+                          <input class="form-control" placeholder="HH:MM AM/PM"/><span class="input-group-append input-group-addon"><span class="input-group-text"><i class="fa fa-clock"></i></span></span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+             
+            
+
+
+            <br>
+            <a class="btn btn-primary" href="empleado_nuevo.html">Nuevo</a>
+            <br><br>
+            <div v-if="error">
+                <p>Lo sentimos, ha ocurrido un error.</p>
+            </div>
+            <div v-else>
+                <section v-if="cargando">
+                    <div class="spinner-border"></div>
+                    <p>Cargando...</p>
+                </section>
+                <section v-else>
+                    <div class="table-responsive">
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Id</th>
+                                    <th scope="col">Nombre</th>
+                                    <th scope="col">Apellido</th>
+                                    <th scope="col">WhatsApp</th>
+                                    <th scope="col">posicion</th>
+                                    <th scope="col">Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+
+                                <td colspan="9" class="er">Equipo Rojo</td>
+                                <td colspan="9" class="er"></td>
+                                </tr>
+                                <template class"" v-for="(empleado, index) in empleados">
+
+                                    
+
+                                    <tr v-if="(index  === 5) || (index === 12) ">
+                                        <td colspan="9" class="suplentes1">Suplentes</td>
+                                        <td colspan="9" class="suplentes1"></td>
+                                    </tr>
+                                    <tr v-if="(index === 7)">
+                                        <td colspan="9" class="ea">Equipo azul</td>
+                                        <td colspan="9" class="ea"></td>
+                                    </tr>
+                                    
+                                    <tr >
+                                        <td scope="row">{{ empleado.id }}</td>
+                                        <td>{{ empleado.nombre }}</td>
+                                        <td>{{ empleado.apellido }}</td>
+                                        <td>{{ empleado.whatsapp }}</td>
+                                        <td>{{ empleado.posicion }}</td>
+                                        
+                                        <td>
+                                            <a class="btn btn-primary" :href="'empleado_update.html?id=' + empleado.id">Editar</a>
+                                            <button type="button" class="btn btn-danger" v-on:click="eliminar(empleado.id)">Eliminar</button>
+                                        </td>
+
+                                        <tr v-if="index===13">
+                                        
+                                            <td colspan="9" class="ec">Equipos completos</td>
+                                            <td colspan="9" class="ec"></td>
+                                        </tr>
+                                    </tr>
+                                </template>
+                               
+                               
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </main>
+    <footer id="miFooter">
+        <script src="../static/main.js"></script>
+
+        <!-- Coloca tu pie de página aquí -->
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js" integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="../static/main.js"></script>
+    
+    <script src="../static/empleados.js"></script>
+</body>
+</html>
